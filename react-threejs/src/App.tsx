@@ -2,7 +2,7 @@ import { OrbitControls, Sphere } from "@react-three/drei";
 import { Canvas, Color, Vector3, useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 import { Group, Object3DEventMap } from "three";
-import { pointsInner } from "./utils/utils";
+import { pointsInner, pointsOuter } from "./utils/utils";
 
 // function App() {
 //   return (
@@ -20,11 +20,14 @@ function App() {
   return (
     <div className="relative">
       <Canvas camera={{ position: [10, -7.5, -5] }} className="bg-[#101010]" style={{ height: "100vh" }}>
-        <OrbitControls maxDistance={20} minDistance={10}/>
+        <OrbitControls maxDistance={20} minDistance={10} />
         <directionalLight />
         <pointLight position={[-10, 0, -30]} power={10.0} />
         <PointCircle />
       </Canvas>
+      <h1 className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] text-slate-200 font-medium text-2xl md:text-5xl pointer-events-none">
+        My Page
+      </h1>
     </div>
   );
 }
@@ -41,6 +44,7 @@ const PointCircle = () => {
   return (
     <group ref={ref}>
       {pointsInner.map(point => <Point key={point.idx} position={point.position} color={point.color} />)}
+      {pointsOuter.map(point => <Point key={point.idx} position={point.position} color={point.color} />)}
     </group>
   );
 };

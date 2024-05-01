@@ -62,3 +62,23 @@ export const pointsInner = Array.from(
         color
     }
 })
+
+export const pointsOuter = Array.from(
+    { length: NUM_POINTS / 4 },
+    (v, k) => k + 1
+).map((num) => {
+    const randomRadius = randomFromInterval(MIN_RADIUS / 2, MAX_RADIUS / 2)
+    const randomAngle = Math.random() * Math.PI * 2
+
+    const x = Math.cos(randomAngle) * randomRadius
+    const y = Math.sin(randomAngle) * randomRadius
+    const z = randomFromInterval(-DEPTH * 10, DEPTH * 10)
+
+    const color = calculateColor(x)
+
+    return {
+        idx: num,
+        position: [x, y, z] as Vector3,
+        color
+    }
+})
