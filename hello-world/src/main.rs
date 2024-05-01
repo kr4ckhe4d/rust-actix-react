@@ -50,7 +50,8 @@ async fn main() -> std::io::Result<()> {
             // .route("/{filename:.*}", web::get().to(file))
             .route("/react", web::get().to(open_react))
             .route("/hey", web::get().to(manual_hello))
-            .service(Files::new("/build/", "./build/")) // Serve the static files route for the react app
+            .service(Files::new("/build/", "./build/").show_files_listing()) // Serve the static files route for the react app
+            .service(Files::new("/static/", "./build/static")) // Serve the static files route for the react app
             .service(
                 // prefixes all resources and routes attached to it...
                 web::scope("/app")
