@@ -1,0 +1,6 @@
+const MIN_RADIUS = 7.5
+const MAX_RADIUS = 15
+const DEPTH = 2
+const LEFT_COLOR = "F79A00"
+const RIGHT_COLOR = "FD12D1"
+const NUM_POINTS = 2500
