@@ -2,6 +2,7 @@ import { OrbitControls, Sphere } from "@react-three/drei";
 import { Canvas, Color, Vector3, useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 import { Group, Object3DEventMap } from "three";
+import { pointsInner } from "./utils/utils";
 
 // function App() {
 //   return (
@@ -39,9 +40,7 @@ const PointCircle = () => {
 
   return (
     <group ref={ref}>
-      <Point position={[0, 0, 0]} color="purple"/>
-      <Point position={[1, 1, 1]} color="red"/>
-      <Point position={[2, 2, 2]} color="green"/>
+      {pointsInner.map(point => <Point key={point.idx} position={point.position} color={point.color} />)}
     </group>
   );
 };
