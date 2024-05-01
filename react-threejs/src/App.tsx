@@ -19,8 +19,8 @@ import { pointsInner } from "./utils/utils";
 function App() {
   return (
     <div className="relative">
-      <Canvas className="bg-[#101010]" style={{ height: "100vh" }}>
-        <OrbitControls />
+      <Canvas camera={{ position: [10, -7.5, -5] }} className="bg-[#101010]" style={{ height: "100vh" }}>
+        <OrbitControls maxDistance={20} minDistance={10}/>
         <directionalLight />
         <pointLight position={[-10, 0, -30]} power={10.0} />
         <PointCircle />
